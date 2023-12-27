@@ -1,17 +1,16 @@
 baseURL = "https://example.org/"
-title = "Dev Blog"
+# title = "Dev Blog"
 theme = "hugo-coder"
-languageCode = "en"
+# languageCode = "en"
 defaultcontentlanguage = "en"
-
 paginate = 20
 
 [markup.highlight]
-style = "github-dark"
+  style = "github-dark"
 
 [params]
   author = "Nikita Garmoza"
-  info = "Backend Java Developer"
+  info = "Java Backend Developer"
   description = "Nikita Garmoza's personal website"
   keywords = "blog,developer,personal"
 
@@ -49,3 +48,41 @@ style = "github-dark"
   name = "About"
   weight = 2
   url = "about/"
+
+[languages]
+  [languages.en]
+    title = "Dev Blog"
+    languageName = "English"
+    languageCode = "en"
+    weight = 1
+  [languages.ru]
+    title = "Блог Разработчика"
+    languageName = "Русский"
+    languageCode = "ru"
+    weight = 2
+
+[[languages.en.menu.main]]
+name = "About"
+weight = 1
+url = "about/"
+
+[[languages.en.menu.main]]
+name = "Blog"
+weight = 2
+url = "posts/"
+
+[languages.ru.params]
+author = "Никита Гармоза"
+info = "Java Backend Разработчик"
+description = "Пероснальный сайт Никиты Гармоза"
+keywords = "блог,разработчик,персональный"
+
+[[languages.ru.menu.main]]
+name = "Обо мне"
+weight = 1
+url = "about/"
+
+[[languages.ru.menu.main]]
+name = "Блог"
+weight = 2
+url = "posts/"

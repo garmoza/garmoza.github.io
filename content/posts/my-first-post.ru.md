@@ -1,7 +1,7 @@
 +++ 
 draft = true
 date = 2023-12-27T08:45:19+03:00
-title = "Example of post"
+title = "Пример поста"
 description = ""
 slug = ""
 authors = []
@@ -11,4 +11,4 @@ externalLink = ""
 series = []
 +++
 
-Page for menu testing.
+Страница для тестирования меню.

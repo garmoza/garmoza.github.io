@@ -13,6 +13,7 @@ paginate = 20
   info = "Java Backend Developer"
   description = "Nikita Garmoza's personal website"
   keywords = "blog,developer,personal"
+  math = true
 
   since = 2024
 
@@ -76,6 +77,7 @@ author = "Никита Гармоза"
 info = "Java Backend Разработчик"
 description = "Пероснальный сайт Никиты Гармоза"
 keywords = "блог,разработчик,персональный"
+math = true
 
 [[languages.ru.menu.main]]
 name = "Обо мне"

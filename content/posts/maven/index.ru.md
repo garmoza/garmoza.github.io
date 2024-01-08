@@ -119,7 +119,7 @@ Maven - является **декларативным** - разработчик
 </repositories>
 ```
 
-Места, откуда подгружаются зависимости. По умолчанию (если нечего не указанно) используется **maven central repository**,
+Места, откуда подгружаются зависимости. По умолчанию (если ничего не указанно) используется **maven central repository**,
 который определяется в родительском pom.xml
 
 #### Dependencies
@@ -147,3 +147,62 @@ Maven - является **декларативным** - разработчик
 - `provided` - code compilation + test (lombok)
 - `runtime` - runtime + test (jdbc)
 - `test` - test (compile and runtime of tests)
+
+### Maven lifecycle
+
+В Maven есть возможность запускать
+
+- целые жизненные циклы
+- только единичные фазы
+- только выбранные цели
+
+<!-- {{ $image := .Resources.Get "maven-lifecycles-n-goals-graph.webp" }} -->
+
+<!-- <img src="maven-lifecycles-n-goals-graph.webp" alt="" /> -->
+
+По умолчанию в каждом Maven проекте три жизненных цикла (последовательности фаз):
+
+- `site` - создает веб-сайт с информацией о проекте
+- `clean` - удаляет /target
+- `default` - основной жизненный цикл, содержит более чем 20 фаз
+
+<!-- {{ $image := .Resources.Get "Maven-Life-Cycle.jpg" }} -->
+
+{{ with .Resources.GetMatch "Maven-Life-Cycle.jpg" }}
+<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
+{{ end }}
+
+<!-- <img src="Maven-Life-Cycle.jpg" alt="" /> -->
+
+- `compile` - компилирует исходный код (преобразовывает .java в .class и помещает в /target)
+- `test-compile` - аналогичен `compile`, только для test папки
+- `test` - запускает тесты
+- `package` - собирает файлы в jar/war/ear
+- `install` - располагает выполняемые файлы локально
+- `deploy` - копирует исполняемые файлы в удаленный репозиторий
+
+#### Запуск циклов или фаз
+
+```bash
+mvn site
+mvn clear
+mvn clear site
+```
+
+Есть возможность пропускать фазы. Например, пропуск тестов
+
+```bash
+mvn package -Dmaven.test.skip=true
+mvn package -DskipTest
+```
+
+#### Запуск целей
+
+```bash
+name_of_plugin:goal
+resources:resources
+surefire:test
+compiler:compile
+```
+
+Каждая цель принадлежит некоторому плагину

@@ -156,9 +156,7 @@ Maven - является **декларативным** - разработчик
 - только единичные фазы
 - только выбранные цели
 
-<!-- {{ $image := .Resources.Get "maven-lifecycles-n-goals-graph.webp" }} -->
-
-<!-- <img src="maven-lifecycles-n-goals-graph.webp" alt="" /> -->
+![](maven-lifecycles-n-goals-graph.webp)
 
 По умолчанию в каждом Maven проекте три жизненных цикла (последовательности фаз):
 
@@ -166,13 +164,7 @@ Maven - является **декларативным** - разработчик
 - `clean` - удаляет /target
 - `default` - основной жизненный цикл, содержит более чем 20 фаз
 
-<!-- {{ $image := .Resources.Get "Maven-Life-Cycle.jpg" }} -->
-
-{{ with .Resources.GetMatch "Maven-Life-Cycle.jpg" }}
-<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
-{{ end }}
-
-<!-- <img src="Maven-Life-Cycle.jpg" alt="" /> -->
+![](Maven-Life-Cycle.jpg)
 
 - `compile` - компилирует исходный код (преобразовывает .java в .class и помещает в /target)
 - `test-compile` - аналогичен `compile`, только для test папки
@@ -185,24 +177,94 @@ Maven - является **декларативным** - разработчик
 
 ```bash
 mvn site
-mvn clear
-mvn clear site
+mvn clean
+mvn clean site
 ```
 
 Есть возможность пропускать фазы. Например, пропуск тестов
 
 ```bash
-mvn package -Dmaven.test.skip=true
-mvn package -DskipTest
+mvn package -D maven.test.skip=true
+mvn package -D skipTests
 ```
 
 #### Запуск целей
 
 ```bash
-name_of_plugin:goal
-resources:resources
-surefire:test
-compiler:compile
+mvn name_of_plugin:goal
+mvn resources:resources
+mvn surefire:test
+mvn compiler:compile
 ```
 
 Каждая цель принадлежит некоторому плагину
+
+#### Plugins
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <!-- another plugin -->
+        </plugin>
+    </plugins>
+</build>
+```
+
+Можно добавлять новые плагины, конфигурировать их, а также **перезаписывать конфигурацию** для уже существующих
+
+Либо можно вызывать цель вместе с флагом
+
+```bash
+mvn compiler:compile -D maven.compiler.target=1.8
+```
+
+#### Profiles
+
+Maven profile - набор конфигураций, который может быть применен к проекту
+
+```xml
+<profiles>
+    <profile>
+        <id>production</id>
+        <build>
+            <directory>production</directory>
+        </build>
+    </profile>
+
+    <profile>
+        <id>changeFinalName</id>
+        <build>
+            <finalName>NewFinalName</finalName>
+        </build>
+
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+    </profile>
+</profiles>
+```
+
+`activation` - задает условие, при котором будет применен профиль
+
+- `activeByDefault` - применять всегда
+- `property` - если указано свойство
+- `file` - если указанный файл существует
+- `jdk` - при совпадении версии jdk
+- `os` - при указанной ОС
+
+Вызов цели вместе с профилем
+
+```bash
+mvn -P production package
+```

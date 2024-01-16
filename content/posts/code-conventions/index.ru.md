@@ -84,6 +84,27 @@ alpha = (aLongBooleanExpression)
         : gamma;
 ```
 
+### Для `stream()`, `builder()`
+
+- `stream()`, `builder()` на той же строке
+- промежуточные и конечные операции с новой строки, отступ в **8 пробелов**
+- если лямбда, то как с обычным блоком **+ еще 4 пробела**
+
+```java
+// Mulit-Line Statement
+List<String> strings = Arrays.stream(ppl)
+        .filter((x) -> {
+            return x.contains("(M)");
+        })
+        .collect(Collectors.toList());
+
+// Single-Line Statement
+List<String> strings = Arrays.stream(ppl)
+        .map((x) -> x.toUpperCase())
+        .filter((x) -> x.contains("(M)"))
+        .collect(Collectors.toList());
+```
+
 ## Переменные
 
 Переменные **должны объявляться в начале блока** (любой код окруженный `{}`).

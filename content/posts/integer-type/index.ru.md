@@ -27,23 +27,23 @@ series = []
 {{< tabgroup >}}
 {{< tab name="cpp" >}}
 
-- `unsigned char`: 1 байт (8 бит). $$0 \dots 255$$
-- `char`: 1 байт. $$-128 \dots 127$$
-- `unsigned short`: 2 байта. $$0 \dots 65535$$
-- `short`: 2 байта. $$–32768 \dots 32767$$
-- `unsigned int`: 4 байта. $2^{32} \geq 4.2e9$. $$0 \dots 4.2e9$$
-- `int`: 4 байта. $$-2.1e9 \dots 2.1e9$$
-- `unsigned long long`: 8 байт. $2^{64} \geq 18.4e18$. $$0 \dots 18.4e18$$
-- `long long`: 8 байт. $$-9.2e18 \dots 9.2e18$$
+- `unsigned char`: 1 байт (8 бит). $[0 \dots 255]$
+- `char`: 1 байт. $[-128 \dots 127]$
+- `unsigned short`: 2 байта. $[0 \dots 65535]$
+- `short`: 2 байта. $[–32768 \dots 32767]$
+- `unsigned int`: 4 байта. $2^{32} \geq 4.2e9$. $[0 \dots 4.2e9]$
+- `int`: 4 байта. $[-2.1e9 \dots 2.1e9]$
+- `unsigned long long`: 8 байт. $2^{64} \geq 18.4e18$. $[0 \dots 18.4e18]$
+- `long long`: 8 байт. $[-9.2e18 \dots 9.2e18]$
 
 {{< /tab >}}
 
 {{< tab name="java" >}}
 
-- `byte`: 1 байт. $$-128 \dots 127$$
-- `short`: 2 байта. $$–32768 \dots 32767$$
-- `int`: 4 байта. $$-2.1e9 \dots 2.1e9$$
-- `long`: 8 байт. $$-9.2e18 \dots 9.2e18$$
+- `byte`: 1 байт. $[-128 \dots 127]$
+- `short`: 2 байта. $[–32768 \dots 32767]$
+- `int`: 4 байта. $[-2.1e9 \dots 2.1e9]$
+- `long`: 8 байт. $[-9.2e18 \dots 9.2e18]$
 
 {{< /tab >}}
 {{< /tabgroup >}}

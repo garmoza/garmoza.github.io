@@ -109,3 +109,9 @@ public class CarService {
   }
 }
 ```
+
+### Виды Spring DI
+
+1. **Constructor injection** - во всех случаях, кроме тестового кода.
+2. **Setter Injection** - только в особых случаях.
+3. **Field Injection** - удобно использовать в тестовом коде.

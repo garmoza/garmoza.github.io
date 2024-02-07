@@ -1,7 +1,7 @@
 +++ 
 draft = true
 date = 2024-02-07T15:04:27+03:00
-title = "Анатомия Java-метода"
+title = "Терминология Java"
 description = ""
 slug = ""
 authors = ["Никита Гармоза"]
@@ -10,6 +10,16 @@ categories = []
 externalLink = ""
 series = []
 +++
+
+# Класс
+
+**Fields** (поля) - свойства класса.
+
+**Methods** (методы) - поведение.
+
+**Attributes** - fields + methods.
+
+# Метод
 
 Рассмотрим вызов `main` в качестве примера:
 
@@ -56,6 +66,37 @@ System.out
 {{< notice tip >}}
 Все **expression** возвращают значение (за исключением некоторых, которые возвращают `void`).
 {{< /notice >}}
+
+## Аргумент и параметр
+
+Рассмотрим на примере:
+
+```java
+public int sum(int a, int b) {
+  return a + b;
+}
+
+public static void main(String[] args) {
+  int value = 1;
+  sum(value, 2);
+}
+```
+
+**Argument** - значение, которое указывается при вызове метода (`value`, `2`).
+
+**Parameter** - переменная/значение внутри метода (`a`, `b`).
+
+Для обобщенных типов:
+
+```java
+class Gen<T> {}
+
+Gen<Integer> object;
+```
+
+**Type argument** - `Integer`.
+
+**Type parameter** - `T` (placeholder).
 
 **Links**:
 

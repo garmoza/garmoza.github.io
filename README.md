@@ -14,3 +14,5 @@ hugo new content posts/some-post.ru.md
 hugo new content posts/some-post/index.md
 hugo new content posts/some-post/index.ru.md
 ```
+
+!

@@ -105,3 +105,7 @@ Integer.parseInt();
 Integer.parseUnsignedInt();
 Integer.signum();
 ```
+
+**Links**:
+
+- https://www.youtube.com/watch?v=wkHU5akk2po

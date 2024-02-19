@@ -1,5 +1,5 @@
 +++ 
-draft = true
+draft = false
 date = 2024-02-07T15:04:27+03:00
 title = "Терминология Java"
 description = ""
